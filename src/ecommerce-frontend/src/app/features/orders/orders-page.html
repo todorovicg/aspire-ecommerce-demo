@@ -1,0 +1,76 @@
+<h1 class="title">{{ 'orders.title' | transloco }}</h1>
+
+@if (orders.status() === 'loading') {
+  <mat-progress-bar mode="indeterminate" [attr.aria-label]="'orders.loading' | transloco" />
+}
+@if (polling()) {
+  <p class="hint">{{ 'orders.watching' | transloco }}</p>
+}
+
+@if (failure(); as failure) {
+  <mat-card class="notice" appearance="outlined">
+    <mat-card-content>
+      <p>{{ failureText() }}</p>
+      <p class="code">[{{ failure.code }}]</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="reload()">{{ 'common.retry' | transloco }}</button>
+    </mat-card-actions>
+  </mat-card>
+} @else if (orders.value(); as items) {
+  @if (items.length === 0) {
+    <mat-card class="notice" appearance="outlined">
+      <mat-card-content>
+        @if (waitingForOrder()) {
+          <p>{{ 'orders.placing' | transloco }}</p>
+        } @else {
+          <p>{{ 'orders.empty' | transloco }}</p>
+        }
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-flat-button routerLink="/products">{{ 'common.browse' | transloco }}</a>
+      </mat-card-actions>
+    </mat-card>
+  }
+  <div class="list">
+    @for (order of items; track order.id) {
+      <mat-card appearance="outlined" class="order">
+        <mat-card-header>
+          <mat-card-title>{{
+            'orders.order' | transloco: { id: order.id.slice(0, 8) }
+          }}</mat-card-title>
+          <mat-card-subtitle>{{
+            order.createdAt | translocoDate: { dateStyle: 'medium', timeStyle: 'short' }
+          }}</mat-card-subtitle>
+          <span class="status" [class]="'status ' + order.status.toLowerCase()">{{
+            'status.' + order.status | transloco
+          }}</span>
+        </mat-card-header>
+        <mat-card-content>
+          <ul class="lines">
+            @for (line of order.lines; track line.productId) {
+              <li>
+                <span>{{ line.quantity }} x {{ line.productName }}</span>
+                <span>{{
+                  line.lineTotal | translocoCurrency: 'symbol' : {} : order.currency
+                }}</span>
+              </li>
+            }
+          </ul>
+          <div class="footer">
+            <span>{{
+              'orders.cardAndCity'
+                | transloco: { last4: order.cardLast4, city: order.shippingAddress.city }
+            }}</span>
+            <span class="total">{{
+              order.total | translocoCurrency: 'symbol' : {} : order.currency
+            }}</span>
+          </div>
+          @if (order.failureReason) {
+            <p class="reason">{{ reason(order.failureReason) }}</p>
+          }
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+}

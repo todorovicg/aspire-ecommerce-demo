@@ -1,0 +1,21 @@
+<mat-toolbar class="header">
+  <a class="brand" routerLink="/products">E-Commerce Aspire Demo</a>
+  <nav class="nav" aria-label="Main">
+    <app-language-menu />
+    <a mat-button routerLink="/products" routerLinkActive="active">{{
+      'nav.products' | transloco
+    }}</a>
+    <a
+      mat-button
+      routerLink="/basket"
+      routerLinkActive="active"
+      [matBadge]="basket.count()"
+      [matBadgeHidden]="basket.count() === 0"
+      matBadgeSize="small"
+      [attr.aria-label]="'nav.basket' | transloco"
+    >
+      {{ 'nav.basket' | transloco }}
+    </a>
+    <a mat-button routerLink="/orders" routerLinkActive="active">{{ 'nav.orders' | transloco }}</a>
+  </nav>
+</mat-toolbar>

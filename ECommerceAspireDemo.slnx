@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Ecommerce.ApiDefaults/Ecommerce.ApiDefaults.csproj" />
+    <Project Path="src/Ecommerce.AppHost/Ecommerce.AppHost.csproj" />
+    <Project Path="src/Ecommerce.Basket.Api/Ecommerce.Basket.Api.csproj" />
+    <Project Path="src/Ecommerce.Catalog.Api/Ecommerce.Catalog.Api.csproj" />
+    <Project Path="src/Ecommerce.Contracts/Ecommerce.Contracts.csproj" />
+    <Project Path="src/Ecommerce.Gateway/Ecommerce.Gateway.csproj" />
+    <Project Path="src/Ecommerce.Ordering.Api/Ecommerce.Ordering.Api.csproj" />
+    <Project Path="src/Ecommerce.Payment.Api/Ecommerce.Payment.Api.csproj" />
+    <Project Path="src/Ecommerce.Preferences.Api/Ecommerce.Preferences.Api.csproj" />
+    <Project Path="src/Ecommerce.ServiceDefaults/Ecommerce.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Ecommerce.ApiDefaults.Tests/Ecommerce.ApiDefaults.Tests.csproj" />
+    <Project Path="tests/Ecommerce.Basket.Api.Tests/Ecommerce.Basket.Api.Tests.csproj" />
+    <Project Path="tests/Ecommerce.Catalog.Api.Tests/Ecommerce.Catalog.Api.Tests.csproj" />
+    <Project Path="tests/Ecommerce.IntegrationTests/Ecommerce.IntegrationTests.csproj" />
+    <Project Path="tests/Ecommerce.Ordering.Api.Tests/Ecommerce.Ordering.Api.Tests.csproj" />
+    <Project Path="tests/Ecommerce.Payment.Api.Tests/Ecommerce.Payment.Api.Tests.csproj" />
+    <Project Path="tests/Ecommerce.Preferences.Api.Tests/Ecommerce.Preferences.Api.Tests.csproj" />
+  </Folder>
+</Solution>

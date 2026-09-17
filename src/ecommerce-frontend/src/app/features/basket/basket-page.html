@@ -1,0 +1,79 @@
+<h1 class="title">{{ 'basket.title' | transloco }}</h1>
+
+@if (store.failure(); as failure) {
+  <mat-card class="notice" appearance="outlined">
+    <mat-card-content>
+      <p>{{ failureText() }}</p>
+      <p class="code">[{{ failure.code }}]</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="store.load()">{{ 'common.retry' | transloco }}</button>
+    </mat-card-actions>
+  </mat-card>
+} @else if (store.items().length === 0) {
+  <mat-card class="notice" appearance="outlined">
+    <mat-card-content>
+      <p>{{ 'basket.empty' | transloco }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button routerLink="/products">{{ 'common.browse' | transloco }}</a>
+    </mat-card-actions>
+  </mat-card>
+} @else {
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <ul class="lines">
+        @for (item of store.items(); track item.productId) {
+          <li class="line">
+            <div class="name">
+              <span>{{ item.productName }}</span>
+              <small>{{
+                'basket.each'
+                  | transloco
+                    : { price: (item.unitPrice | translocoCurrency: 'symbol' : {} : 'EUR') }
+              }}</small>
+            </div>
+            <div
+              class="quantity"
+              role="group"
+              [attr.aria-label]="'basket.quantityOf' | transloco: { name: item.productName }"
+            >
+              <button
+                mat-stroked-button
+                (click)="decrease(item)"
+                [disabled]="store.busy()"
+                [attr.aria-label]="'basket.decrease' | transloco"
+              >
+                -
+              </button>
+              <span class="value">{{ item.quantity }}</span>
+              <button
+                mat-stroked-button
+                (click)="increase(item)"
+                [disabled]="store.busy()"
+                [attr.aria-label]="'basket.increase' | transloco"
+              >
+                +
+              </button>
+            </div>
+            <div class="line-total">
+              {{ item.lineTotal | translocoCurrency: 'symbol' : {} : 'EUR' }}
+            </div>
+            <button mat-button (click)="remove(item)" [disabled]="store.busy()">
+              {{ 'basket.remove' | transloco }}
+            </button>
+          </li>
+        }
+      </ul>
+      <div class="summary">
+        <span>{{ 'common.total' | transloco }}</span>
+        <span class="total">{{ store.total() | translocoCurrency: 'symbol' : {} : 'EUR' }}</span>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <a mat-flat-button routerLink="/checkout" [class.disabled]="store.busy()">{{
+        'basket.checkout' | transloco
+      }}</a>
+    </mat-card-actions>
+  </mat-card>
+}

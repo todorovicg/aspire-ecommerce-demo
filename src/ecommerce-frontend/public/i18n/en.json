@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "products": "Products",
+    "basket": "Basket",
+    "orders": "Orders",
+    "language": "Language"
+  },
+  "language": {
+    "saveFailed": "Your language could not be saved"
+  },
+  "common": {
+    "retry": "Retry",
+    "dismiss": "Dismiss",
+    "browse": "Browse products",
+    "total": "Total"
+  },
+  "products": {
+    "title": "Products",
+    "loading": "Loading products",
+    "inStock": "In stock: {{count}}",
+    "outOfStock": "Out of stock",
+    "add": "Add to basket",
+    "empty": "No products available",
+    "added": "Added {{name}} to your basket",
+    "capped": "Only {{count}} of {{name}} available, quantity set to {{count}}"
+  },
+  "basket": {
+    "title": "Your basket",
+    "empty": "Your basket is empty.",
+    "each": "{{price}} each",
+    "quantityOf": "Quantity of {{name}}",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "remove": "Remove",
+    "checkout": "Proceed to checkout",
+    "removed": "Removed {{name}} from your basket",
+    "capped": "Only {{count}} of {{name}} available"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "empty": "Your basket is empty, there is nothing to check out.",
+    "details": "Delivery and payment",
+    "name": "Full name",
+    "email": "Email",
+    "street": "Street",
+    "city": "City",
+    "postalCode": "Postal code",
+    "country": "Country",
+    "cardNumber": "Card number",
+    "cardHint": "Test cards: 4242 4242 4242 4242 is approved, any number ending in 0002 is declined",
+    "cardHolder": "Card holder",
+    "back": "Back to basket",
+    "place": "Place order",
+    "summary": "Order summary",
+    "placed": "Order placed, total {{total}}"
+  },
+  "orders": {
+    "title": "Your orders",
+    "loading": "Loading orders",
+    "watching": "Watching for status changes",
+    "placing": "Your order is being placed and will appear here in a moment.",
+    "empty": "You have not placed any orders yet.",
+    "order": "Order {{id}}",
+    "cardAndCity": "Card ending {{last4}}, shipping to {{city}}"
+  },
+  "status": {
+    "Submitted": "Submitted",
+    "Paid": "Paid",
+    "Shipped": "Shipped",
+    "PaymentFailed": "Payment failed"
+  },
+  "reasons": {
+    "card_declined": "The card was declined",
+    "declined": "The payment was declined"
+  },
+  "errors": {
+    "basket": {
+      "product_not_found": "That product no longer exists",
+      "product_out_of_stock": "That product is out of stock",
+      "catalog_unavailable": "The catalog is unavailable right now, please try again",
+      "checkout_empty": "Your basket is empty",
+      "checkout_out_of_stock": "Some items exceed the available stock",
+      "outbox_unavailable": "The order could not be submitted, your basket was kept"
+    },
+    "catalog": {
+      "product_not_found": "That product no longer exists"
+    },
+    "common": {
+      "upstream_unavailable": "A service is unavailable right now, please try again"
+    },
+    "client": {
+      "network_error": "The server could not be reached"
+    }
+  }
+}

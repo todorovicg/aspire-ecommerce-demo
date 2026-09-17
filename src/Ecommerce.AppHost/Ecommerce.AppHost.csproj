@@ -1,0 +1,27 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.5.3">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AspireUseCliBundle>true</AspireUseCliBundle>
+    <UserSecretsId>ecommerce-aspire-demo-apphost</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+    <PackageReference Include="Aspire.Hosting.Redis" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" />
+    <PackageReference Include="Aspire.Hosting.MongoDB" />
+    <PackageReference Include="Aspire.Hosting.JavaScript" />
+    <PackageReference Include="JasperFx.Aspire" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Ecommerce.Catalog.Api/Ecommerce.Catalog.Api.csproj" />
+    <ProjectReference Include="../Ecommerce.Basket.Api/Ecommerce.Basket.Api.csproj" />
+    <ProjectReference Include="../Ecommerce.Gateway/Ecommerce.Gateway.csproj" />
+    <ProjectReference Include="../Ecommerce.Ordering.Api/Ecommerce.Ordering.Api.csproj" />
+    <ProjectReference Include="../Ecommerce.Payment.Api/Ecommerce.Payment.Api.csproj" />
+    <ProjectReference Include="../Ecommerce.Preferences.Api/Ecommerce.Preferences.Api.csproj" />
+  </ItemGroup>
+
+</Project>

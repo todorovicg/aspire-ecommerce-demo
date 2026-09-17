@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "products": "Proizvodi",
+    "basket": "Korpa",
+    "orders": "Porudžbine",
+    "language": "Jezik"
+  },
+  "language": {
+    "saveFailed": "Vaš jezik nije mogao da bude sačuvan"
+  },
+  "common": {
+    "retry": "Pokušaj ponovo",
+    "dismiss": "Zatvori",
+    "browse": "Pogledaj proizvode",
+    "total": "Ukupno"
+  },
+  "products": {
+    "title": "Proizvodi",
+    "loading": "Učitavanje proizvoda",
+    "inStock": "Na stanju: {{count}}",
+    "outOfStock": "Nema na stanju",
+    "add": "Dodaj u korpu",
+    "empty": "Nema dostupnih proizvoda",
+    "added": "{{name}} je dodat u korpu",
+    "capped": "Dostupno je samo {{count}} kom. proizvoda {{name}}, količina je postavljena na {{count}}"
+  },
+  "basket": {
+    "title": "Vaša korpa",
+    "empty": "Vaša korpa je prazna.",
+    "each": "{{price}} po komadu",
+    "quantityOf": "Količina za {{name}}",
+    "decrease": "Smanji količinu",
+    "increase": "Povećaj količinu",
+    "remove": "Ukloni",
+    "checkout": "Nastavi na plaćanje",
+    "removed": "{{name}} je uklonjen iz korpe",
+    "capped": "Dostupno je samo {{count}} kom. proizvoda {{name}}"
+  },
+  "checkout": {
+    "title": "Plaćanje",
+    "empty": "Vaša korpa je prazna, nema šta da se plati.",
+    "details": "Isporuka i plaćanje",
+    "name": "Ime i prezime",
+    "email": "Imejl",
+    "street": "Ulica",
+    "city": "Grad",
+    "postalCode": "Poštanski broj",
+    "country": "Država",
+    "cardNumber": "Broj kartice",
+    "cardHint": "Test kartice: 4242 4242 4242 4242 se odobrava, svaki broj koji se završava na 0002 se odbija",
+    "cardHolder": "Vlasnik kartice",
+    "back": "Nazad na korpu",
+    "place": "Poruči",
+    "summary": "Pregled porudžbine",
+    "placed": "Porudžbina je primljena, ukupno {{total}}"
+  },
+  "orders": {
+    "title": "Vaše porudžbine",
+    "loading": "Učitavanje porudžbina",
+    "watching": "Pratimo promene statusa",
+    "placing": "Vaša porudžbina se obrađuje i pojaviće se ovde za koji trenutak.",
+    "empty": "Još uvek niste ništa poručili.",
+    "order": "Porudžbina {{id}}",
+    "cardAndCity": "Kartica se završava na {{last4}}, isporuka u {{city}}"
+  },
+  "status": {
+    "Submitted": "Primljena",
+    "Paid": "Plaćena",
+    "Shipped": "Poslata",
+    "PaymentFailed": "Plaćanje nije uspelo"
+  },
+  "reasons": {
+    "card_declined": "Kartica je odbijena",
+    "declined": "Plaćanje je odbijeno"
+  },
+  "errors": {
+    "basket": {
+      "product_not_found": "Taj proizvod više ne postoji",
+      "product_out_of_stock": "Tog proizvoda nema na stanju",
+      "catalog_unavailable": "Katalog trenutno nije dostupan, pokušajte ponovo",
+      "checkout_empty": "Vaša korpa je prazna",
+      "checkout_out_of_stock": "Neke stavke premašuju dostupne količine",
+      "outbox_unavailable": "Porudžbina nije mogla da bude poslata, korpa je sačuvana"
+    },
+    "catalog": {
+      "product_not_found": "Taj proizvod više ne postoji"
+    },
+    "common": {
+      "upstream_unavailable": "Neki servis trenutno nije dostupan, pokušajte ponovo"
+    },
+    "client": {
+      "network_error": "Server nije dostupan"
+    }
+  }
+}

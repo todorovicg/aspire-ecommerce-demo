@@ -1,0 +1,10 @@
+.tile {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+  color: rgb(255 255 255 / 92%);
+  font: var(--mat-sys-display-small);
+  letter-spacing: 0.05em;
+}

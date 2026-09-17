@@ -1,0 +1,25 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  gap: 1.5rem;
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+}
+
+.brand {
+  font: var(--mat-sys-title-large);
+  color: inherit;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.active {
+  font-weight: 700;
+}

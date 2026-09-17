@@ -1,0 +1,9 @@
+.footer {
+  position: sticky;
+  bottom: 0;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font: var(--mat-sys-body-small);
+  background: var(--mat-sys-surface-container);
+  color: var(--mat-sys-on-surface-variant);
+}

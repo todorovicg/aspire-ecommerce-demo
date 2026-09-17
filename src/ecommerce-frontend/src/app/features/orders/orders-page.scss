@@ -1,0 +1,79 @@
+.title {
+  font: var(--mat-sys-headline-medium);
+  margin: 0 0 1rem;
+}
+
+.hint {
+  font: var(--mat-sys-label-medium);
+  color: var(--mat-sys-on-surface-variant);
+  margin: 0 0 0.75rem;
+}
+
+.list {
+  display: grid;
+  gap: 1rem;
+}
+
+.order mat-card-header {
+  align-items: center;
+  gap: 1rem;
+}
+
+.status {
+  margin-left: auto;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  font: var(--mat-sys-label-large);
+  background: var(--mat-sys-surface-container-high);
+  color: var(--mat-sys-on-surface);
+}
+
+.status.paid {
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+}
+
+.status.shipped {
+  background: var(--mat-sys-tertiary-container);
+  color: var(--mat-sys-on-tertiary-container);
+}
+
+.status.paymentfailed {
+  background: var(--mat-sys-error-container);
+  color: var(--mat-sys-on-error-container);
+}
+
+.lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lines li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--mat-sys-outline-variant);
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.total {
+  font: var(--mat-sys-title-medium);
+  color: var(--mat-sys-on-surface);
+}
+
+.reason {
+  color: var(--mat-sys-error);
+}
+
+.notice .code {
+  font: var(--mat-sys-label-medium);
+  color: var(--mat-sys-on-surface-variant);
+}

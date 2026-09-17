@@ -1,0 +1,48 @@
+.title {
+  font: var(--mat-sys-headline-medium);
+  margin: 0 0 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
+.product mat-card-content {
+  flex: 1;
+}
+
+.sold-out app-product-image {
+  opacity: 0.55;
+}
+
+.description {
+  color: var(--mat-sys-on-surface-variant);
+  min-height: 2.6em;
+}
+
+.price {
+  font: var(--mat-sys-title-medium);
+  margin: 0.5rem 0 0.25rem;
+}
+
+.stock {
+  font: var(--mat-sys-label-large);
+  color: var(--mat-sys-primary);
+  margin: 0;
+}
+
+.stock.out {
+  color: var(--mat-sys-error);
+}
+
+.notice .code {
+  font: var(--mat-sys-label-medium);
+  color: var(--mat-sys-on-surface-variant);
+}

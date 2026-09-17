@@ -1,0 +1,15 @@
+<button
+  mat-button
+  class="trigger"
+  [matMenuTriggerFor]="menu"
+  [attr.aria-label]="'nav.language' | transloco"
+>
+  {{ names[store.language()] }} <span aria-hidden="true">&#9662;</span>
+</button>
+<mat-menu #menu="matMenu">
+  @for (language of languages; track language) {
+    <button mat-menu-item (click)="select(language)" [disabled]="language === store.language()">
+      {{ names[language] }}
+    </button>
+  }
+</mat-menu>

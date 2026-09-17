@@ -1,0 +1,83 @@
+<h1 class="title">{{ 'checkout.title' | transloco }}</h1>
+
+@if (store.items().length === 0) {
+  <mat-card class="notice" appearance="outlined">
+    <mat-card-content>
+      <p>{{ 'checkout.empty' | transloco }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button routerLink="/products">{{ 'common.browse' | transloco }}</a>
+    </mat-card-actions>
+  </mat-card>
+} @else {
+  <div class="layout">
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{ 'checkout.details' | transloco }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+          <mat-form-field>
+            <mat-label>{{ 'checkout.name' | transloco }}</mat-label>
+            <input matInput formControlName="name" autocomplete="name" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ 'checkout.email' | transloco }}</mat-label>
+            <input matInput formControlName="email" type="email" autocomplete="email" />
+          </mat-form-field>
+          <mat-form-field class="wide">
+            <mat-label>{{ 'checkout.street' | transloco }}</mat-label>
+            <input matInput formControlName="street" autocomplete="street-address" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ 'checkout.city' | transloco }}</mat-label>
+            <input matInput formControlName="city" autocomplete="address-level2" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ 'checkout.postalCode' | transloco }}</mat-label>
+            <input matInput formControlName="postalCode" autocomplete="postal-code" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ 'checkout.country' | transloco }}</mat-label>
+            <input matInput formControlName="country" autocomplete="country-name" />
+          </mat-form-field>
+          <mat-form-field class="wide">
+            <mat-label>{{ 'checkout.cardNumber' | transloco }}</mat-label>
+            <input matInput formControlName="cardNumber" inputmode="numeric" autocomplete="off" />
+            <mat-hint>{{ 'checkout.cardHint' | transloco }}</mat-hint>
+          </mat-form-field>
+          <mat-form-field class="wide">
+            <mat-label>{{ 'checkout.cardHolder' | transloco }}</mat-label>
+            <input matInput formControlName="cardHolder" autocomplete="cc-name" />
+          </mat-form-field>
+          <div class="actions">
+            <a mat-button routerLink="/basket">{{ 'checkout.back' | transloco }}</a>
+            <button mat-flat-button type="submit" [disabled]="submitting() || store.busy()">
+              {{ 'checkout.place' | transloco }}
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="summary">
+      <mat-card-header>
+        <mat-card-title>{{ 'checkout.summary' | transloco }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ul class="lines">
+          @for (item of store.items(); track item.productId) {
+            <li>
+              <span>{{ item.quantity }} x {{ item.productName }}</span>
+              <span>{{ item.lineTotal | translocoCurrency: 'symbol' : {} : 'EUR' }}</span>
+            </li>
+          }
+        </ul>
+        <div class="total">
+          <span>{{ 'common.total' | transloco }}</span>
+          <span>{{ store.total() | translocoCurrency: 'symbol' : {} : 'EUR' }}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+}

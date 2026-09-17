@@ -1,0 +1,55 @@
+<h1 class="title">{{ 'products.title' | transloco }}</h1>
+
+@if (products.isLoading()) {
+  <mat-progress-bar mode="indeterminate" [attr.aria-label]="'products.loading' | transloco" />
+}
+
+@if (failure(); as failure) {
+  <mat-card class="notice" appearance="outlined">
+    <mat-card-content>
+      <p>{{ failureText() }}</p>
+      <p class="code">[{{ failure.code }}]</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="reload()">{{ 'common.retry' | transloco }}</button>
+    </mat-card-actions>
+  </mat-card>
+} @else if (products.value(); as items) {
+  <div class="grid">
+    @for (product of items; track product.id) {
+      <mat-card
+        class="product"
+        [class.sold-out]="product.availableStock === 0"
+        appearance="outlined"
+      >
+        <app-product-image [imageKey]="product.imageKey" [name]="product.name" />
+        <mat-card-header>
+          <mat-card-title>{{ product.name }}</mat-card-title>
+          <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p class="description">{{ product.description }}</p>
+          <p class="price">{{ product.price | translocoCurrency: 'symbol' : {} : 'EUR' }}</p>
+          @if (product.availableStock > 0) {
+            <p class="stock">
+              {{ 'products.inStock' | transloco: { count: product.availableStock } }}
+            </p>
+          } @else {
+            <p class="stock out">{{ 'products.outOfStock' | transloco }}</p>
+          }
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button
+            mat-flat-button
+            (click)="add(product)"
+            [disabled]="product.availableStock === 0 || basket.busy()"
+          >
+            {{ 'products.add' | transloco }}
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    } @empty {
+      <p>{{ 'products.empty' | transloco }}</p>
+    }
+  </div>
+}
